@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset='utf-8'>
+    <title>JQuery-events-Remcoo</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="css/portfolio.css">
+    <script src="js/jquery.js"></script>
+
+    <!-- jQuery Events  Opdrachten
+    
+    1:Maak drie buttons en creëer daarvoor 3 verschillende vormen van events. Koppel er een functie aan die weergeeft welk soort event gebruikt werd.
+
+   2: Maak een lijst d.m.v. een ul tag. Plaats in de ul-tag een id. Plaats in elke li-tag een title-attribuut met één woord t.a.v. de content van de tag. Creëer een event op deze div-tag en geef daarna de tekst van het title-attribuut weer van de aangeklikte li-tag.
+
+    3: Creëer een simpel formulier met bijvoorbeeld drie tekstvelden. Zorg ervoor dat na het verlaten van het tekstveld er een message in de console verschijnt met de ingetypte tekst.
+ -->
+
+
+    <script>
+
+$(document).ready(function(){ //jquery events
+
+    // opdracht 1
+    $('.html').on('click', function() { 
+        $(this).css( 'color', '#090')
+        .html('De tekst is nu aangepast door middel van een .html');
+    });
+
+    $('.hide').on('click', function() {
+        $(this).hide();
+    });
+
+    $('.mouseDown').mousedown (function() {
+       alert("Abandon all hope, ye who enter.")
+    });
+
+
+
+    // opdracht 2
+
+
+
+
+
+
+    //opdracht 3
+
+    $("input").focus(function(){// Kleurt de bg van de Form
+    $(this).css("background-color", "#69f");
+  });
+  $("input").blur(function(){
+    $(this).css("background-color", "#fff");
+  });
+
+  $(".buttonForm").click(function(){// geeft data weer vd input form in een alert venster
+    alert("Value: " + $(".valueName").val + $(".valueData").val + + $(".valueEmail").val());
+  });
+});
+
+
+
+    </script>
+
+</head>
+
+
+
+<body>
+    <div id="container">
+        <header>
+            <div id="header-box">
+                <h2>Portfolio Remco Jansen</h2>
+                <p id="tagline" class="box">Web, geschiedenis, sport</p>
+            </div>
+            <ul id="menu">
+                <li class="active_menu"><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="over_mijzelf.html">Over mijzelf</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </header>
+
+        <div id="content-box">
+            <div>
+                <article id="content">
+                    <p class="kolom">
+                        <h3>sit amet</h3> stet amet amet eirmod amet, no diam dolores consetetur amet dolor takimata takimata amet sit. At nonumy sed duo accusam et accusam et nonumy, et takimata ea clita eos, consetetur et dolor tempor accusam sit. Labore et diam ea dolor et est. <span class="html">Deze tekst wordt aangepast door middel van een click event.<button>KLIK KLIK</button></span> Eos ipsum sanctus stet amet, dolor no accusam ea sea diam et. Duo et magna erat diam. Et lorem ea et eos tempor est, ea eos tempor magna sed.
+                    </p>
+                    <p class="kolom">
+                       <button><h3 class="mouseDown">WELKOM</h3></button> elitr at labore sed, dolor duo invidunt dolor rebum nonumy diam, dolores aliquyam sanctus sit takimata vero amet. Justo justo aliquyam diam duo eirmod sit amet, kasd elitr sed et no et, aliquyam consetetur ipsum diam no elitr gubergren ipsum dolore, <span class="hide">Deze complete tekst verdwijnt door middel van een hide event. <button>KLIK KLIK</button></span>
+                    </p>
+                </article>
+                <form action="">
+                    <p>Name: <input type="text" name="name" class="valueName" value=""><br>
+                    Adres: <input type="text" name="adres" class="valueData" value=""><br>
+                    Email: <input type="text" name="email" class="valueEmail" value=""></p>
+                </form>
+                <button class="buttonForm">laat waarde zien</button>
+
+            </div>
+            <aside id="sidebar">
+                <div class="box">
+                    <ul>
+                        <li title="Portfolio">Portfolio</li>
+                        <li title="Over mijzel">over_mijzelf</li>
+                        <li title="Contact">Contact</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <footer>
+            <div class="copyrights">&copy; Remco Jansen - v0.1 - 06-10-2021</div>
+        </footer>
+
+    </div>
+
+    <script language="JavaScript">
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+          $("button").click(function(){
+            alert("Value: " + $("#test").val());
+          });
+        });
+        </script>
+</head>
+<body>
+
+<!-- HTML event -->
+    <!-- <form>
+        <a onClick="document.forms[0].elements[1].value='Mouse-click event.'" 
+        onMouseOver="document.forms[0].elements[1].value='Mouse-enter event.'"
+        onMouseOut="document.forms[0].elements[1].value='Mouse-out event.'">
+        <input name="eventsBt" type="button" value="Button events">
+        </a>
+        → <input name="eventsTxt" type="text" id="btInfoTxt">
+    </form> -->
+
+<!-- JS event -->
+<button id="hitmebox">Hit me!</button>
+
+<p>Name: <input type="text" id="test" value=""></p>
+<button>Show Value</button>
+
+
+<script>
+    document.getElementById('hitmebox').addEventListener('click', function(){
+        alert("Leuk dat je op mijn hitme button hebt gedrukt.");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colored Text</title>
+  <style>
+    *{margin:0; padding:0;box-sizing: border-box;}
+    #container{
+        width: 100%;
+        height: 100vh;
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        background-color: rgb(216, 203, 203);
+     
+    }
+    h1{
+        margin-top: 50px;
+        color: #000;
+        font-size: 22px; 
+    }
+    form{
+        display: block;
+        position: relative;
+        margin-top: 100px;
+      
+    }
+    select{
+        /* margin-top: 100px; */
+        min-width: 400px;
+        min-height: 60px;
+        border-radius: 5px;
+        font-size: 30px;
+        padding: 10px;
+        background-color: #000;
+        color: #fff;
+        
+    }
+    #chosenCol{
+        display: block;
+        margin-top: 50px;
+        margin-left: 39%;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        }
+    .hide{
+        display: none;
+    }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1 class="title">Choose your favorite color</h1>
+        <form>
+            <select id="colorSelect">
+                <!-- genereted by js -->
+            </select>
+        </form>
+        <div id="chosenCol"></div>
+    
+        </div>
+<script>
+    // init vars
+    var colors = [
+        { color: '',  code: '' },
+        { color: 'indianred',  code: '#CD5C5C' },
+        { color: 'lightcoral', code: '#F08080' },
+        { color: 'salmon', code: '#FA8072' },
+        { color: 'darksalmon', code: '#E9967A' },
+        { color: 'orangered', code: '#FF4500' },
+        { color: 'red', code: '#FF0000' },
+        { color: 'crimson', code: '#DC143C' },
+        { color: 'firebrick',  code: '#B22222' },
+        { color: 'darkred', code: '#8B0000' },
+        { color: 'pink', code: '#FFC0CB' },
+        { color: 'lightpink', code: '#FFB6C1' },
+        { color: 'palevioletred', code: '#DB7093' },
+        { color: 'hotpink', code: '#FF69B4' },
+        { color: 'deeppink', code: '#FF1493' },
+        { color: 'mediumvioletred', code: '#C71585' },
+        { color: 'lightyellow',  code: '#FFFFE0' },
+        { color: 'lemonchiffon', code: '#FFFACD' },
+        { color: 'lightgoldenrodyellow', code: '#FAFAD2' },
+        { color: 'papayawhip', code: '#FFEFD5' },
+        { color: 'moccasin', code: '#FFE4B5' },
+        { color: 'peachpuff', code: '#FFDAB9' },
+        { color: 'palegoldenrod', code: '#DC143C' },
+        { color: 'palevioletred', code: '#EEE8AA' },
+        { color: 'khaki', code: '#F0E68C' },
+        { color: 'yellow', code: '#FFFF00' },
+        { color: 'gold', code: '#FFD700' },
+        { color: 'darkkhaki', code: '#BDB76B' },
+        { color: 'lightcyan',  code: '#E0FFFF' },
+        { color: 'paleturquoise', code: '#AFEEEE' },
+        { color: 'aqua', code: '#00FFFF' },
+        { color: 'aquamarine', code: '#7FFFD4' },
+        { color: 'turquoise', code: '#7FFFD4' },
+        { color: 'mediumturquoise', code: '#48D1CC' },
+        { color: 'darkturquoise', code: '#00CED1' },
+        { color: 'powderblue', code: '#B0E0E6' },
+        { color: 'lightsteelblue', code: '#B0C4DE' },
+        { color: 'lightblue', code: '#ADD8E6' },
+        { color: 'skyblue', code: '#87CEEB' },
+        { color: 'lightskyblue', code: '#B0C4DE' },
+        { color: 'deepskyblue', code: '#00BFFF' },
+        { color: 'cornflowerblue', code: '#6495ED' },
+        { color: 'steelblue', code: '#4682B4' },
+        { color: 'cadetblue',  code: '#5F9EA0' },
+        { color: 'mediumslateblue', code: '#7B68EE' },
+        { color: 'dodgerblue', code: '#1E90FF' },
+        { color: 'royalblue', code: '#4169E1' },
+        { color: 'blue', code: '#0000FF' },
+        { color: 'mediumblue', code: '#0000CD' },
+        { color: 'darkblue', code: '#00008B' },
+        { color: 'navy', code: '#000080' },
+        { color: 'midnightblue', code: '#191970' },
+        { color: 'lightsalmon', code: '#FFA07A' },
+        { color: 'orange', code: '#FFA500' },
+        { color: 'darkorange', code: '#FF8C00' },
+        { color: 'coral', code: '#FF7F50' },
+        { color: 'tomato', code: '#FF6347' },
+        { color: 'orangered', code: '#FF4500' },
+        { color: 'greenyellow', code: '#ADFF2F' },
+        { color: 'chartreuse', code: '#7FFF00' },
+        { color: 'lawngreen', code: '#7CFC00' },
+        { color: 'lime', code: '#00FF00' },
+        { color: 'palegreen', code: '#98FB98' },
+        { color: 'lightgreen', code: '#90EE90' },
+        { color: 'mediumspringgreen', code: '#00FA9A' },
+        { color: 'cornflowerblue', code: '#6495ED' },
+        { color: 'springgreen', code: '#00FF7F' },
+        { color: 'yellowgreen',  code: '#9ACD32' },
+        { color: 'limegreen', code: '#32CD32' },
+        { color: 'mediumseagreen', code: '#3CB371' },
+        { color: 'seagreen', code: '#2E8B57' },
+        { color: 'forestgreen', code: '#228B22' },
+        { color: 'green', code: '#008000' },
+        { color: 'olivedrab', code: '#00008B' },
+        { color: 'olive', code: '#808000' },
+        { color: 'darkolivegreen', code: '#191970' },
+        { color: 'darkgreen', code: '#006400' },
+        { color: 'aquamarine', code: '#7FFFD4' },
+        { color: 'mediumaquamarine', code: '#66CDAA' },
+        { color: 'darkseagreen', code: '#8FBC8F' },
+        { color: 'lightseagreen', code: '#20B2AA' },
+        { color: 'darkcyan', code: '#008B8B' },
+        { color: 'teal', code: '#008080' },
+        { color: 'lavender', code: '#E6E6FA' },
+        { color: 'thistle', code: '#D8BFD8' },
+        { color: 'plum', code: '#DDA0DD' },
+        { color: 'violet', code: '#EE82EE' },
+        { color: 'magenta', code: '#FF00FF' },
+        { color: 'orchid', code: '#DA70D6' },
+        { color: 'mediumorchid', code: '#6495ED' },
+        { color: 'springgreen', code: '#00FF7F' },
+        { color: 'yellowgreen',  code: '#9ACD32' },
+        { color: 'limegreen', code: '#32CD32' },
+        { color: 'mediumseagreen', code: '#BA55D3' },
+        { color: 'mediumpurple', code: '#9370DB' },
+        { color: 'slateblue', code: '#6A5ACD' },
+        { color: 'blueviolet', code: '#8A2BE2' },
+        { color: 'darkviolet', code: '#9400D3' },
+        { color: 'darkorchid', code: '#9932CC' },
+        { color: 'darkmagenta', code: '#8B008B' },
+        { color: 'purple', code: '#800080' },
+        { color: 'darkslateblue', code: '#483D8B' },
+        { color: 'indigo', code: '#4B0082' },
+        { color: 'cornsilk', code: '#FFF8DC' },
+        { color: 'blanchedalmond', code: '#FFEBCD' },
+        { color: 'bisque', code: '#FFE4C4' },
+        { color: 'navajowhite', code: '#FFDEAD' },
+        { color: 'wheat', code: '#F5DEB3' },
+        { color: 'burlywood', code: '#DEB887' },
+        { color: 'tan', code: '#D2B48C' },
+        { color: 'rosybrown', code: '#BC8F8F' },
+        { color: 'sandybrown', code: '#F4A460' },
+        { color: 'goldenrod', code: '#DAA520' },
+        { color: 'darkgoldenrod', code: '#B8860B' },
+        { color: 'peru', code: '#CD853F' },
+        { color: 'chocolate', code: '#D2691E' },
+        { color: 'saddlebrown',  code: '#8B4513' },
+        { color: 'sienna', code: '#A0522D' },
+        { color: 'brown', code: '#A52A2A' },
+        { color: 'maroon', code: '#800000' },
+        { color: 'white', code: '#FFFFFF' },
+        { color: 'snow', code: '#FFFAFA' },
+        { color: 'honeydew', code: '#F0FFF0' },
+        { color: 'mintcream', code: '#F5FFFA' },
+        { color: 'azure', code: '#F0FFFF' },
+        { color: 'aliceblue', code: '#F0F8FF' },
+        { color: 'ghostwhite', code: '#F8F8FF' },
+        { color: 'whitesmoke', code: '#F5F5F5' },
+        { color: 'seashell', code: '#FFF5EE' },
+        { color: 'beige', code: '#F5F5DC' },
+        { color: 'oldlace', code: '#FDF5E6' },
+        { color: 'floralwhite', code: '#FFFAF0' },
+        { color: 'ivory',  code: '#FFFFF0' },
+        { color: 'antiquewhite', code: '#FAEBD7' },
+        { color: 'linen', code: '#FAF0E6' },
+        { color: 'lavenderblush', code: '#FFF0F5' },
+        { color: 'mistyrose', code: '#FFE4E1' },
+        { color: 'gainsboro', code: '#DCDCDC' },
+        { color: 'lightgrey', code: '#D3D3D3' },
+        { color: 'silver', code: '#C0C0C0' },
+        { color: 'darkgrey', code: '#A9A9A9' },
+        { color: 'grey', code: '#808080' },
+        { color: 'dimgrey', code: '#696969' },
+        { color: 'lightslategrey', code: '#778899' },
+        { color: 'slategrey', code: '#708090' },
+        { color: 'darkslategrey', code: '#2F4F4F' },
+        { color: 'black', code: '#000000' }
+        
+    ]
+    optionStr = '';
+    
+    for (let i = 0; i < colors.length; i++) {
+        optionStr += '<option value=' + i + '>' + colors[i].color + '</option>';
+        
+    }
+    
+    document.getElementById('colorSelect').innerHTML = optionStr;
+
+    document.getElementById('colorSelect').addEventListener('change', function(evt) {
+        const selIndex = this.selectedIndex;
+        let  selectedCol = document.getElementById('colorSelect');
+
+        selectedCol.style.color = colors[selIndex].code;
+        selectedCol.style.fontSize = 100 + 'px';
+        selectedCol.style.fontWeight = 'bold';
+        
+        
+        if (!document.querySelector('.title').classList.contains('hide')) {
+            document.querySelector('.title').classList.add('hide');
+        }
+        //document.querySelector('.title').classList = 'hide';
+
+        // if (selectedCol.style.color = '#000') {
+        //     selectedCol.style.backgroundColor = '#fff'
+        // };
+
+        if (selIndex == 146) {
+            console.log('is black', selectedCol.options[selIndex]);
+            selectedCol.style.backgroundColor = '#fff';
+        }
+    });
+    
+    
+        </script>
+    </body>
+    </html>
+    
+        
+    
+    

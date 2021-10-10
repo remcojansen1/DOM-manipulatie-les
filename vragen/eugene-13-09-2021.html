@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les 1 - input</title>
+</head>
+<body>
+    
+    <h1>opdracht 1</h1>
+    <p>gebruik 2x een prompt om 2 getallen op te slaan in het geheugen <br>toon daarna de uitkomst van de optelling in het console-venster</p>
+
+<script>
+// + + + + + init + + +
+var eersteInput, // getallen
+tweedeInput;
+
+// + + + + + user input + + +
+eersteInput = prompt('Typ een getal in');
+tweedeInput = prompt('Typ een getal in');
+
+//+ + + + + conversie + + +
+eersteInput = parseFloat(eersteInput);
+tweedeInput = parseFloat(tweedeInput);
+
+//+ + + + optelling + + +
+var optelling = eersteInput + tweedeInput;
+const som = (eersteInput, tweedeInput) => eersteInput + tweedeInput;
+
+// + + + + controle + + +
+console.log('test', eersteInput, tweedeInput, optelling, 
+som(eersteInput,tweedeInput));
+
+</script>
+
+</body>
+</html>
