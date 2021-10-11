@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset='utf-8'>
+    <title>JQuery-events-opdracht2</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="css/portfolio.css">
+    <script src="js/jquery.js"></script>
+
+    <!-- jQuery Events  Opdrachten
+    
+    1:Maak drie buttons en creëer daarvoor 3 verschillende vormen van events. Koppel er een functie aan die weergeeft welk soort event gebruikt werd.
+
+   2: Maak een lijst d.m.v. een ul tag. Plaats in de ul-tag een id. Plaats in elke li-tag een title-attribuut met één woord t.a.v. de content van de tag. Creëer een event op deze div-tag en geef daarna de tekst van het title-attribuut weer van de aangeklikte li-tag.
+
+    3: Creëer een simpel formulier met bijvoorbeeld drie tekstvelden. Zorg ervoor dat na het verlaten van het tekstveld er een message in de console verschijnt met de ingetypte tekst.
+ -->
+
+
+    <script>
+
+$(document).ready(function(){ //jquery events
+
+    // opdracht 2
+    $('.portfolio').mouseenter(function() { 
+        $('.boxTitle').text('portfolio');
+    });
+    $('.portfolio').mouseout(function() { 
+        $('.boxTitle').text('');
+    });
+    $('.overMijzelf').mouseenter(function() { 
+        $('.boxTitle').text('over mijzelf');
+    });
+    $('overMijzelf').mouseout(function() { 
+        $('.boxTitle').text('');
+    });
+    $('.contact').mouseenter(function() { 
+        $('.boxTitle').text('contact');
+    });
+    $('contact').mouseout(function() { 
+        $('.boxTitle').text('');
+    });
+});
+
+
+
+    </script>
+
+</head>
+
+
+
+<body>
+    <div id="container">
+        <header>
+            <div id="header-box">
+                <h2>Portfolio Remco Jansen</h2>
+                <p id="tagline" class="box">Web, geschiedenis, sport</p>
+            </div>
+            <ul id="menu">
+                <li class="active_menu"><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="over_mijzelf.html">Over mijzelf</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </header>
+
+        <div id="content-box">
+            
+            <aside id="sidebar">
+                <div class="box">
+                    <ul>
+                        <li title="Portfolio" class="portfolio">Portfolio</li>
+                        <li title="Over mijzel" class="overMijzelf">over mijzelf</li>
+                        <li title="Contact" class="contact">Contact</li>
+                    </ul>
+                    <div class="boxTitle"></div>
+                </div>
+            </aside>
+        </div>
+
+        <footer>
+            <div class="copyrights">&copy; Remco Jansen - v0.1 - 06-10-2021</div>
+        </footer>
+
+    </div>
+
+    <script language="JavaScript">
+    </script>
+</body>
+
+</html>
