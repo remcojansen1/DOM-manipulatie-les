@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON test</title>
+    <script src="js/jquery.js"></script>
+
+    <script>
+        const jsonObj = { 
+            "voornaam": "Rob", 
+            "achternaam": "van der Galiën", 
+        }; 
+        const jsonStr = JSON.stringify(jsonObj); // creat string form object
+        console.log('JSON voorbeeld', jsonObj, jsonStr);
+        
+        console.log('JSON parse', JSON.parse(jsonStr)); // create object from string
+        
+        localStorage.setItem('jsonStr', jsonStr);
+        
+        console.log('get item from object', jsonObj.voornaam, jsonObj["voornaam"]);
+        
+        $(document).ready(function() {
+            $('#hitmeBox').on('click', function() { 
+                const nwJsonStr = localStorage.getItem('jsonStr'); 
+                const nwJsonObj = JSON.parse(nwJsonStr);
+                $('.content').html('Naam: ' + nwJsonObj.voornaam + ' ' + nwJsonObj.achternaam + 
+                    ' werd geladen vanuit de localStorage.');
+            });
+        });
+            </script>
+
+</head>
+<body>
+
+<div class="content">
+    <button id="hitmeBox">push me</button>
+</div>
+</body>
+</html>

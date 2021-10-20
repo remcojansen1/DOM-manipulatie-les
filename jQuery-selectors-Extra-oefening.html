@@ -3,7 +3,7 @@
 
 <head>
     <meta charset='utf-8'>
-    <title>JQuery-wrap-opdracht1</title>
+    <title>JQuery selectors</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
     <link rel="stylesheet" href="css/portfolio.css">
@@ -24,33 +24,21 @@
 
 $(document).ready(function(){ //jquery events
 
+    $('button').on('click', function() {
 
-$('button').on('click', function() {
-    $(this).css({ 
-        'background-color': '#090',
-        'font-size': '30px',
-        'color': '#fff',
+        $(this).css({ //verwijst naar de button
+            'color': '#090',
+            'font-size': '20px',
+            'background-color': '#f0f'
+        });
+        $('p').css('color', '#f0f');
+        $('div#container > i').css('font-size', '20px');
+        $('div div li').css('color', '#0ff');
+        $('h1, ul li:first-child').css('color', '#00f');
     });
 
-     $('#container').css({
-         'background-color': '#f00',
-         'color': '#fff'
-     });
-
-     $('h1').css({
-         'color': '#123',
-         'font-size': '35px',
-         'text-align': 'center'
-     });
-
-     $('i').css({
-         'color': '#123',
-         'font-size': '35px'
-     });
-
-     $('ul li:nth-child(3)').css('color', '#FD6'); 
-
-     $('ul').css('color', '#f60'); 
+    $('p').on('click', function() {
+        $(this).css('color', '#00f');
     });
 });
 
@@ -66,16 +54,18 @@ $('button').on('click', function() {
    
     <div id="container">
         <h1>jQuery</h1>
-        <p>jQuery is een zgn. externe <i>library</i>, die diverse functionaliteit 
+        <p> jQuery is een zgn. externe <i>library</i>, die diverse functionaliteit 
             toevoegd aan Javascript. Daarvoor moet de library eerst gedownload worden. 
             Alternatieven zijn o.a.</p>
+    <div id="aside"> 
         <ul>
             <li>zepto</li>
             <li>umbrella</li>
             <li>cash</li>
             <li>chibi</li>
         </ul>
-        <button>Push me</button>
+    </div>
+    <button>Push me</button>
     </div>
 
 </body>

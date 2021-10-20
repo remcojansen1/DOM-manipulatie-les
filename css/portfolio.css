@@ -1,9 +1,10 @@
 body {
-    margin: 0;
+    margin: 0px auto;
+    width: 960px;
     padding: 0;
     font: 14px/20px Helvetica, Verdana, sans-serif;
     color: #123;
-}
+    }
 span{
     color:rgb(243, 10, 10);
     font-size: 150%;
@@ -11,10 +12,11 @@ span{
 input{
     margin: 10px;
 }
-#container {
-    width: 100%;
-    margin: 0 auto;
-}
+/* #container{
+   max-width: 960px;
+    padding: 25px; 
+    margin: 0px auto;
+} */
 
 header {
     width: 100%;
@@ -39,9 +41,14 @@ header {
     list-style-type: none;
     display: inline-block;
     margin: 0 48px 0 -36px;
-    padding: 0;
+    padding: 10px;
 }
-
+button{
+    width: 100px;
+    height: 50px;
+    background-color: #123;
+    color: #fff;
+}
 #content-box {
     padding: 8px;
 }
@@ -66,4 +73,30 @@ footer {
     text-align: center;
     border-top: 1px solid #69f;
     color: #69f;
+}
+.sober{
+    background-color: darkgray;
+    border:2px solid #000;
+    width: 1024px;
+    height: 700px;
+    padding: 25px;
+    color:rgb(0, 88, 160);
+}
+.speels{
+    background-color: rgb(246, 204, 14);
+    border: 20px solid rgb(251, 1, 1);
+    width: 1024px;
+    height: 700px;
+    padding: 25px;
+    color:rgb(51, 0, 160);
+}
+.bigFun{
+    font-size: xx-large;
+    font-weight: bolder;
+}
+.geen{
+    background-image: url("../images/seamless-pattern.jpg");
+    background-repeat: repeat;
+    background-color: rgb(145, 203, 250);
+    height: 900px;
 }

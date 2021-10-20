@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset='utf-8'>
+    <title>JQuery-atributen</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="css/portfolio.css">
+    <script src="js/jquery.js"></script>
+
+<style>
+
+</style>
+
+
+    <script>
+
+$(document).ready(function(){ //jquery events
+
+    $('#sober').click(function(evt) {
+        $('#container').toggleClass('sober');
+    });
+
+    $('#speels').click(function(evt) {
+        $('#container').toggleClass('speels bigFun');
+    });
+
+    $('#geen').click(function(evt) {
+        $('#seamless-pattern').toggleClass('geen');
+    });
+});
+
+
+
+    </script>
+
+</head>
+
+
+
+<body>
+   
+    <div id="container">
+        <h1 class="bigFun">jQuery en attributen</h1>
+        <p>Het on the fly aanpassen van eigenschappen en attributen van <i>DOM-elementen</i> is één van de meest gewaardeerde toepassingen van jQuery.</p>
+        <ul id="menu">
+            <li><button id="sober">sober</button></li>
+            <li><button id="speels">speels</button></li>
+            <li><button id="geen">picture</button></li>
+        </ul>
+    </div>
+    <div id="seamless-pattern"></div>
+
+</body>
+
+</html>

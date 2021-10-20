@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset='utf-8'>
+    <title>JQuery-filters</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="css/portfolio.css">
+    <script src="js/jquery.js"></script>
+
+<style>
+    #container{
+        background-color: rgb(42, 140, 165);
+        max-width: 960px;
+        padding: 25px;
+        margin-top: 15px;
+    }
+</style>
+
+
+<script>
+
+$(document).ready(function(){ //jquery events
+
+    $("table#voorbeeld tr:nth-child(even)").addClass('tabelrij');
+
+});
+
+
+
+</script>
+
+</head>
+
+
+
+<body>
+   
+    <form name="test-form" id="test-form" method="post" action="" onsubmit="checkForm()">
+        voornaam <input type="text" name="voornaam" /><br>
+        tussenvoegsels <input type="text" name="tussenvoegsels" /><br>
+        achternaam <input type="text" name="achternaam" /><br>
+        aantal computers<input type="number" name="num-of-computers" /><br>
+        Windows<input type="radio" name="systeem" value="windows" />
+        Macintosh <input type="radio" name="systeem" value="mac" />
+        Linux<input type="radio" name="systeem" value="linux" />
+        nieuwsbrief <input type="checkbox" name="nieuwsbrief" value="abbonneer" /><br>
+        <hr>
+        <input type="submit" name="submit-btn" id="submit-btn" value="Submit" />
+    </form>
+
+</body>
+
+</html>

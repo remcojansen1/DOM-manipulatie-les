@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery effecten 1</title>
+
+
+    <script src="js/jquery.js"></script>
+    <script>
+        
+$(document).ready(function() {
+
+
+    //na het activeren van de afbeelding een fadeout waarna een nieuwe afbeelding wordt getoond via een fadin
+    $('#ipadImg').on('click', function() {
+        $(this).fadeOut(1000, function(){
+            $(this).attr({'src': 'images/ipad_pro.png'}).fadeIn(1000);
+        }); 
+      
+    }).css('cursor', 'pointer');
+
+}); 
+
+    </script>
+
+</head>
+<body>
+    <div id="ipadImg">
+        <img src="images/ipad_air.png" width="126" height="154" alt="ipad"/>
+    </div>
+</body>
+</html>

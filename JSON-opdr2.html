@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset='utf-8'>
+    <title>JSON 2</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="css/portfolio.css">
+    <script src="js/jquery.js"></script>
+
+<style>
+.persoon-form {
+    width: 580px;
+    margin: 20px 0 0 -20px;
+    padding: 10px;
+    border: 1px solid #666;
+    background: #cde;
+}
+li.form-row {
+    clear: both;
+    width: 100%;
+    min-height: 32px;
+    margin-bottom: 8px;
+    list-style-type: none;
+}
+li.form-row label {
+    float: left;
+    width: 160px;
+}
+li.form-row input, li.form-row button {
+    float: left;
+    width: 360px;
+    height: 24px;
+    font-size: 14px;
+}
+li.radio-label {
+    float: left;
+    width: 20%;
+}
+</style>
+
+
+    <script>
+        const jsonObj = { 
+            "voornaam": "Remco", 
+            "achternaam": "Jansen",
+            "adres": "Graan voor visch 16640",
+            
+
+        }; 
+        const jsonStr = JSON.stringify(jsonObj); // creat string form object
+        console.log('JSON voorbeeld', jsonObj, jsonStr);
+        
+        //console.log('JSON parse', JSON.parse(jsonStr)); // create object from string
+        
+        localStorage.setItem('jsonStr', jsonStr);
+        
+        //console.log('get item from object', jsonObj.voornaam, jsonObj["voornaam"]);
+        
+        $(document).ready(function() {
+            $('#persoonSubmitBtn').on('click', function() { 
+                const nwJsonStr = localStorage.getItem('jsonStr'); 
+                const nwJsonObj = JSON.parse(nwJsonStr);
+                $('.content').html('Naam en adres ' + nwJsonObj.voornaam + ' ' + nwJsonObj.achternaam + 
+                    ' ' + nwJsonObj.adres + ' werd geladen vanuit de localStorage.');
+            });
+        });
+
+    </script>
+
+</head>
+
+
+
+<body>
+   
+    <div class="main">
+        <div class="content">
+            <h2>Persoons gegevens</h2>
+            <form name="persoon-form" id="persoon-form" action="" method="post"  
+                class="persoon-form">
+    
+        <ul class="inschrijf_wrapper">
+            <li class="form-row">
+                <label for="voornaam" class="form-label">Voornaam *</label>
+                <input placeholder="Voornaam" name="voornaam" id="voornaam"  
+                    type="text">
+            </li>
+            <li class="form-row">
+                <label for="tussenvoegsel" class="form-label">Tussenvoegsel</label>
+                <input placeholder="Tussenvoegsel" name="tussenvoegsel" 
+                    id="tussenvoegsel" type="text">
+            </li>
+            <li class="form-row">
+                <label for="achternaam" class="form-label">Achternaam *</label>
+                <input placeholder="Achternaam" name="achternaam"  id="achternaam" 
+                    type="text">
+            </li>
+            <li class="form-row">
+                <label for="emailadres" class="form-label">E-mailadres *</label>
+                <input placeholder="E-mailadres" name="emailadres" id="emailadres" 
+                    type="text"> 
+            </li>
+            <li class="form-row">
+                <label for="telefoon" class="form-label">Telefoon</label>
+                <input placeholder="Telefoon" name="telefoon" id="telefoon" 
+                    type="text"> 
+            </li>
+            <li class="form-row">
+                <label for="niewusbrief" class="form-label">Nieuwsbrief</label>  
+                <input type="checkbox" name="nieuwsbrief" id="nieuwsbrief" 
+                    value="abbonneer"  style="width: 40px;"> 
+                wilt u onze email nieuwsbrief ontvangen?
+            </li> 
+            <li class="form-row">
+                <hr>
+                <label class="form-label"> </label>
+                <button type="button" id="persoonSubmitBtn" name="persoonsubmit" 
+                    class="floatR" >Versturen</button>
+                </hr>
+            </li>
+        </ul>
+        
+    </form>
+    <br class="clearfloat">
+    </div> 
+    <br class="clearfloat">
+    </div>
+
+</body>
+
+</html>

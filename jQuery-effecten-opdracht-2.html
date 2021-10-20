@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery effecten 2</title>
+
+    <style>
+        #ipadImg{
+            width: 126px;
+            height: 154px;
+        }
+        #ipadAll{
+            display: none;
+            width: 126px;
+            height: 154px;
+        }
+    </style>
+
+    <script src="js/jquery.js"></script>
+    <script>
+        
+$(document).ready(function() {
+
+    const   ipads = ['ipad_air', 'ipad_mini', 'ipad_pro', 'ipad'], //array van de ipads
+            maxImages = 4;
+    let     imgNum = 0;
+
+    $('#ipadImg').on('click', function() {
+       
+        // Arry telt vanaf 0, en telt er steeds 1 bij op
+        if (imgNum < maxImages - 1) {
+            imgNum ++;
+        }
+        else {
+            imgNum = 0;
+        }
+        
+        // create url and set src-attribute
+         //verwijst waar de images staan (src) via url
+
+        const url = 'images/' + ipads[imgNum] + '.png';
+        $(this).attr('src', url);
+        
+    }).css('cursor', 'pointer');
+
+}); 
+
+    </script>
+
+</head>
+
+<body>
+    <div >
+            <img src="images/ipad_air.png" width="126" height="154" alt="ipad air" id="ipadImg"/>
+    </div>
+</body>
+</html>
